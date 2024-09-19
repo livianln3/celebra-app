@@ -1,0 +1,41 @@
+* {
+    background-color: #5a5a5a; /* ou #3a3a3a */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+a {
+    background-color: #af3260;
+}
+
+#menu-topo {
+   background-color: #af3260;
+   border-radius: 4px;
+}
+
+#navbar {
+    width: 300%;
+    background-color: #af3260;
+    padding: 10px;
+    text-align: center;
+}
+
+#containerCal {
+    width: 250%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #af3260; /*antes tava esse tom de roxo #25142d; */
+    margin-top: 30px;
+    border-radius: 4px;
+}
