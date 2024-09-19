@@ -30,12 +30,48 @@ a {
 }
 
 #containerCal {
-    width: 250%;
-    height: 80%;
+    width: 80%;
+    height: 80vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #af3260; /*antes tava esse tom de roxo #25142d; */
     margin-top: 30px;
     border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+
+#authorize_button, #signout_button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#events {
+    margin-top: 20px;
+}
+
+#events h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#events p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+
+#calendar {
+    width: 100%;
+    height: 100%;
+}
+
+
