@@ -17,9 +17,14 @@ a {
     background-color: #af3260;
 }
 
+#imgLogo{
+    width: 40px;
+    height: 40px;
+}
+
 #menu-topo {
-   background-color: #af3260;
-   border-radius: 4px;
+    background-color: #af3260;
+    border-radius: 4px;
 }
 
 #navbar {
@@ -30,48 +35,71 @@ a {
 }
 
 #containerCal {
-    width: 80%;
-    height: 80vh;
+    width: 85%;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #af3260; /*antes tava esse tom de roxo #25142d; */
+    background-color: #af3260;
     margin-top: 30px;
     border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative; 
 }
-
-
-#authorize_button, #signout_button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px 0;
-    background-color: #4285F4;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#events {
-    margin-top: 20px;
-}
-
-#events h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-#events p {
-    font-size: 14px;
-    margin: 5px 0;
-}
-
 
 #calendar {
-    width: 100%;
+    width: 110%;
     height: 100%;
 }
 
+#eventModal {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #af3260;
+    box-shadow: 0 0 15px rgba(1, 1, 1, 1.8);
+    z-index: 1000;
+    width: 80%; 
+    max-width: 400px;
+}
 
+#criarEvento {
+    display: flex;
+    flex-direction: column;
+}
+
+#criarEvento label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#criarEvento input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#modalButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+#modalButtons button {
+    padding: 5px 7px;
+    background-color: #af3260;
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1; 
+    margin: 0 5px; 
+}
+
+#modalButtons button:hover {
+    background-color: #3a3a3a; /* Efeito hover para os botões */
+}

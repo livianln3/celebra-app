@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/calendario.css"/>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calendário</title>
 </head>
 <body>
     <div id="navbar">
         <div id="menu-topo">
-            <a href="#">Símbolo do menu</a>
+            <a href="#"><img src="../img/logoCelebra.png" id="imgLogo"> </a>
         </div>
     </div>
 
     <div id="containerCal">
-        <div id="authorize_button"></div>
-        <button id="signout_button" style="display: none;" onclick="handleSignoutClick()">Logout</button>
-        <div id="events"></div>
+        <div id="calendar"></div>
+
+        <!-- Modal para criar/editar evento -->
+        <div id="eventModal" style="display:none;">
+            <div id="criarEvento">
+                <h3 id="modalTitle">Criar Evento</h3>
+                <label>Título:</label>
+                <input type="text" id="eventTitle" required>
+                <label>Data e Hora:</label>
+                <input type="datetime-local" id="eventDate" required>
+                <div id="modalButtons">
+                    <button id="saveEventButton">Salvar Evento</button>
+                    <button id="cancelButton">Cancelar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="../js/calendario.js"></script>
