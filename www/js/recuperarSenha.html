@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Recuperação de Senha</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Recuperação de Senha</h1>
+        <form id="recoverForm">
+            <input type="text" id="codigo" placeholder="Insira o código de recuperação" required>
+            <span id="codigoError" class="error"></span>
+
+            <button type="submit">Verificar Código</button>
+        </form>
+
+        <div id="newPasswordSection" style="display:none;">
+            <div class="password-container">
+                <input type="password" id="novaSenha" placeholder="Crie uma nova senha" required>
+                <i class="bi bi-eye" id="btn-nova-senha" onclick="mostrarSenha('novaSenha', 'btn-nova-senha')"></i>
+            </div>
+            <span id="novaSenhaError" class="error"></span>
+
+            <div class="password-container">
+                <input type="password" id="confirmNovaSenha" placeholder="Confirme sua nova senha" required>
+                <i class="bi bi-eye" id="btn-confirm-nova-senha" onclick="mostrarSenha('confirmNovaSenha', 'btn-confirm-nova-senha')"></i>
+            </div>
+            <span id="confirmNovaSenhaError" class="error"></span>
+
+            <button id="resetPasswordButton">Resetar Senha</button>
+        </div>
+
+        <button onclick="window.location.href='login.html'">Voltar para Login</button>
+    </div>
+    <script>
+        document.getElementById('recoverForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const codigoInput = document.getElementById('codigo');
+            const codigoError = document.getElementById('codigoError');
+
+            if (codigoInput.value) {
+                codigoError.textContent = '';
+                document.getElementById('newPasswordSection').style.display = 'block';
+            } else {
+                codigoError.textContent = 'Por favor, insira um código válido.';
+            }
+        });
+
+        document.getElementById('resetPasswordButton').addEventListener('click', function() {
+            const novaSenhaInput = document.getElementById('novaSenha');
+            const confirmNovaSenhaInput = document.getElementById('confirmNovaSenha');
+            const novaSenhaError = document.getElementById('novaSenhaError');
+            const confirmNovaSenhaError = document.getElementById('confirmNovaSenhaError');
+
+            const novaSenha = novaSenhaInput.value;
+            const confirmNovaSenha = confirmNovaSenhaInput.value;
+
+            let valid = true;
+
+            if (novaSenha.length < 6) {
+                novaSenhaError.textContent = 'A nova senha deve ter pelo menos 6 caracteres.';
+                valid = false;
+            } else {
+                novaSenhaError.textContent = '';
+            }
+
+            if (novaSenha !== confirmNovaSenha) {
+                confirmNovaSenhaError.textContent = 'As senhas não coincidem.';
+                valid = false;
+            } else {
+                confirmNovaSenhaError.textContent = '';
+            }
+
+            if (valid) {
+                alert('Senha redefinida com sucesso!');
+                window.location.href = 'login.html'; // Redireciona para a tela de login
+            }
+        });
+
+        function mostrarSenha(inputId, btnId) {
+            var inputPass = document.getElementById(inputId);
+            var btnShowPass = document.getElementById(btnId);
+
+            if (inputPass.type === 'password') {
+                inputPass.type = 'text';
+                btnShowPass.classList.replace('bi-eye', 'bi-eye-slash');
+            } else {
+                inputPass.type = 'password';
+                btnShowPass.classList.replace('bi-eye-slash', 'bi-eye');
+            }
+        }
+    </script>
+</body>
+</html>
