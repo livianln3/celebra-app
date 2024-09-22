@@ -13,32 +13,6 @@ html, body {
     align-items: center;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, a, span, div, label, input, button {
-    color: black;
-}
-
-.offcanvas-body .nav-link, 
-.offcanvas-body .dropdown-item, 
-#modalButtons button {
-    color: white;
-}
-
-.fc-daygrid-day-number, 
-.fc-event-title, 
-.fc-daygrid-event, 
-.fc-day, 
-.fc-daygrid-day 
-.fc-col-header-cell, 
-.fc-col-header-cell-cushion {
-    color: white;
-}
-
-a {
-    color: black; 
-    background-color: #221329;
-}
-
-
 #container-fluid {
     width: auto;
     display: flex;
@@ -59,27 +33,116 @@ button.navbar-toggler {
     border: 1px solid white;
 }
 
-#containerCal {
-    width: 90%;
-    height: 90vh;
-    display: flex;
-    margin-top: 100px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    position: relative; 
+#imgLogo{
+    width: 40px;
+    height: 40px;
 }
 
-#calendar {
+.navbar {
+    width: 100%; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1000; 
+    color: #26152e;
+    display: flex;
     justify-content: center;
-    width: 95%;
-    height: 95%;
-    box-shadow: 0 0 15px rgba(1, 1, 1, 1.8);
-    border-radius: 10px;
-    color: #ccc;
+    align-items: center;
+}
+
+.navbar-toggler {
+    margin-left: auto;
+    border: 1px solid white; 
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0; 
+    }
+    .offcanvas {
+        width: 75%;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%; 
+    }
+
+    .nav-item {
+        text-align: center;
+        padding: 5px 0;
+    }
+}
+
+#botoes{
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+#eventButton{
+    font-size: 25px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: #26152e;
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    border: 2px solid #983977;
+    width: 60px;
+    text-align: center;
+}
+
+#eventos{
+    border: 1px solid #26152e;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.table {
+    border: 1px solid #26152e;
+    border-collapse: collapse;
+    width: 100%; 
+}
+
+    h1{
+        text-align: center;
+    }
+
+th, td {
+    align-items: center;
+    border: 1px solid #26152e;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr td {
+    border-right: 1px solid #26152e;
+}
+
+tbody tr td:last-child {
+    border-right: none; 
+}
+
+#editButton{
+    background-color: #26152e;
+    color: white;
+    border-radius: 4px;
+    padding: 4px;
+    border: 2px solid #983977;
+}
+
+#deleteButton{
+    background-color: #26152e;
+    color: white;
+    border-radius: 4px;
+    border: 1px solid #983977;
+    padding: 4px;
 }
 
 #eventModal {
@@ -249,52 +312,11 @@ input[type="checkbox"] {
     margin-top: 0;
 }
 
-#imgLogo{
-    width: 40px;
-    height: 40px;
+h3{
+    text-align: center;
 }
 
 h2{
     text-align: center;
 }
 
-h3{
-    text-align: center;
-}
-
-.navbar {
-    width: 100%; 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    z-index: 1000; 
-    color: #26152e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar-toggler {
-    margin-left: auto;
-    border: 1px solid white; 
-}
-
-@media (max-width: 576px) {
-    .navbar {
-        padding: 0; 
-    }
-
-    .offcanvas {
-        width: 75%;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-        width: 100%; 
-    }
-
-    .nav-item {
-        text-align: center;
-        padding: 5px 0;
-    }
-}
