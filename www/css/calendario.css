@@ -1,5 +1,6 @@
 * {
-    background-color: white; /* ou #5a5a5a; */
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,27 +16,31 @@ html, body {
 
 body, h1, h2, h3, h4, h5, h6, p, a, span, div, label, input, button {
     color: black;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .offcanvas-body .nav-link, 
 .offcanvas-body .dropdown-item, 
 #modalButtons button {
     color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .fc-daygrid-day-number, 
 .fc-event-title, 
 .fc-daygrid-event, 
 .fc-day, 
-.fc-daygrid-day 
+.fc-daygrid-day, 
 .fc-col-header-cell, 
 .fc-col-header-cell-cushion {
     color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
     color: black; 
     background-color: #221329;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -60,8 +65,8 @@ button.navbar-toggler {
 }
 
 #containerCal {
-    width: 90%;
-    height: 90vh;
+    width: 85%;
+    height: 85vh;
     display: flex;
     margin-top: 100px;
     flex-direction: column;
