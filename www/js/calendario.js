@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         headerToolbar: {
@@ -18,38 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 start: '2024-09-25T12:30:00',
                 allDay: false
             }
-        ]
+        ],
+        dateClick: function(info) {
+            openChoiceModal(info.date);
+        }
     });
 
     calendar.render();
-
-    // Abrir o prompt quando o botão "Exibição do Calendário" for clicado
-    document.getElementById('calendarViewButton').addEventListener('click', function() {
-        document.getElementById('calendarPrompt').style.display = 'block';
-    });
-
-    // Fechar o prompt
-    document.getElementById('closeCalendarPrompt').addEventListener('click', function() {
-        document.getElementById('calendarPrompt').style.display = 'none';
-    });
-
-    // Mudar a visualização para "Mês"
-    document.getElementById('monthView').addEventListener('click', function() {
-        calendar.changeView('dayGridMonth');
-        document.getElementById('calendarPrompt').style.display = 'none';
-    });
-
-    // Mudar a visualização para "Semana"
-    document.getElementById('weekView').addEventListener('click', function() {
-        calendar.changeView('timeGridWeek');
-        document.getElementById('calendarPrompt').style.display = 'none';
-    });
-
-    // Mudar a visualização para "Dia"
-    document.getElementById('dayView').addEventListener('click', function() {
-        calendar.changeView('timeGridDay');
-        document.getElementById('calendarPrompt').style.display = 'none';
-    });
 
     function openChoiceModal(date) {
         const choiceModal = document.getElementById('choiceModal');
