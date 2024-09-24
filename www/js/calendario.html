@@ -36,6 +36,7 @@
                       <a class="nav-link active" aria-current="page" href="#" style="color:#221329">Menu</a>
                       <a class="nav-link active" aria-current="page" href="../js/calendario.html" style="color:#221329">Calendário</a>
                       <a class="nav-link" href="../js/meusEventos.html" style="color:#221329">Meus Eventos</a>
+                    
                     </li>
                   </ul>
                 </div>
@@ -45,6 +46,8 @@
     </div>
 
     <div id="containerCal">
+      <a class="nav-link" href="#" id="calendarViewButton" style="color:#221329">Exibição do Calendário</a>
+
         <div id="calendar"></div>
 
         <!-- Modal para escolher entre Criar Lembrete ou Planejamento -->
@@ -95,6 +98,15 @@
                 <button id="cancelButton" class="btn btn-danger">Cancelar</button>
             </div>
         </div>
+
+        <!-- Prompt para a exibição do calendário -->
+        <div id="calendarPrompt" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+          <h2>Escolha o modo de visualização do calendário</h2>
+          <button id="monthView" class="btn btn-primary">Mês</button>
+          <button id="weekView" class="btn btn-secondary">Semana</button>
+          <button id="dayView" class="btn btn-info">Dia</button>
+          <button class="btn btn-danger" id="closeCalendarPrompt">Fechar</button>
+      </div>
     </div>
 
     <script src="../js/calendario.js"></script>

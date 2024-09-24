@@ -85,6 +85,7 @@ button.navbar-toggler {
     box-shadow: 0 0 15px rgba(1, 1, 1, 1.8);
     border-radius: 10px;
     color: #ccc;
+    z-index: 1; 
 }
 
 #eventModal {
@@ -139,12 +140,16 @@ button.navbar-toggler {
 }
 
 .navbar-toggler {
-    z-index: 1050;
+    margin-left: auto;
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
 }
 
 .offcanvas {
-    width: 100%; 
-    z-index: 1040; 
+    background-color: #221329;
+    width: 75%;  /* Ajuste para garantir boa visibilidade em telas pequenas */
+    overflow-x: hidden;  /* Evitar que o conteúdo saia para a direita */
 }
 
 .offcanvas-header {
@@ -268,38 +273,85 @@ h3{
 }
 
 .navbar {
-    width: 100%; 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    z-index: 1000; 
-    color: #26152e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #221329;
+    color: #fff;
+    padding: 0; 
 }
 
-.navbar-toggler {
-    margin-left: auto;
-    border: 1px solid white; 
+.offcanvas-body {
+    padding: 0; 
 }
+
+.navbar-nav {
+    flex-direction: column;
+    text-align: center;
+}
+
+.nav-item {
+    padding: 5px 0;
+}
+
+#calendarPrompt {
+    position: fixed; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+    z-index: 9999;
+    width: 300px; 
+    text-align: center; 
+    border-radius: 4px;
+    border: 1px solid #221329;
+}
+
+#calendarPrompt h2 {
+    font-size: 18px;
+    margin-bottom: 20px; /* Espaçamento entre o título e os botões */
+}
+
+#calendarPrompt button {
+    margin: 5px;
+}
+
+
 
 @media (max-width: 576px) {
-    .navbar {
-        padding: 0; 
+    #navbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 
-    .offcanvas {
-        width: 75%;
+    .navbar {
+        padding: 0;
+    }
+
+    .navbar-toggler {
+        border: 1px solid white;
+    }
+
+    .offcanvas-body {
+        background-color: #fff;
     }
 
     .navbar-nav {
         flex-direction: column;
-        width: 100%; 
     }
 
     .nav-item {
-        text-align: center;
         padding: 5px 0;
+    }
+
+    /* Remover a imagem dentro do menu, se houver */
+    .offcanvas img {
+        display: none;
     }
 }
