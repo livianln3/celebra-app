@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #26152e;
+}
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    color: #26152e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-fluid {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.container {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    /* Empilha os retângulos verticalmente */
+    gap: 20px;
+    /* Espaço entre os retângulos */
+    width: 300px;
+    /* Largura fixa para os retângulos */
+}
+
+.retangulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    height: 50px;
+    /* Altura dos retângulos */
+}
+
+.retangulo-out {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    height: 10px;
+    /* Altura dos retângulos */
+}
+
+.retangulo-out p {
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+}
+
+.imagem {
+    width: 35px;
+    /* Tamanho da imagem */
+    height: 35px;
+    /* Tamanho da imagem */
+    margin-right: 10px;
+    /* Espaço entre a imagem e o texto */
+}
+
+.imagem-out {
+    width: 20px;
+    /* Tamanho da imagem */
+    height: 20px;
+    /* Tamanho da imagem */
+    margin-right: 10px;
+    /* Espaço entre a imagem e o texto */
+}
+
+.retangulo p {
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+.btn btn-custom {
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+#open-modal-ajuda {
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: 600;
+}
+
+#open-modal-user {
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: 600;
+}
+
+#open-modal-notif {
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: 600;
+}
+
+.btn-back {
+    background-color: gray;
+    /* Cor de fundo para o botão "Voltar" */
+    color: white;
+    /* Cor do texto para o botão "Voltar" */
+}
+
+.btn-send {
+    background-color: #bd2d51;
+    /* Cor de fundo para o botão "Enviar" (azul padrão do Bootstrap) */
+    color: white;
+    /* Cor do texto para o botão "Enviar" */
+}
+
+#btn-edit-info {
+    background-color: #bd2d51;
+    /* Cor de fundo personalizada (verde) */
+    color: white;
+    /* Cor do texto */
+    border-color: #bd2d51;
+}
+
+#btn-save {
+    background-color: #bd2d51;
+    /* Cor de fundo personalizada (verde) */
+    color: white;
+    /* Cor do texto */
+    border-color: #bd2d51;
+}
+
+#open-modal-notif {
+    background-color: white; /* Cor de fundo personalizada */
+    color: black; /* Cor do texto */
+    border: none; /* Remove a borda */
+}
+
+/* Cor do toggle quando ativado */
+.form-check-input:checked {
+    background-color: #bd2d51; /* Cor de fundo quando ativado */
+    border-color: #bd2d51; /* Cor da borda quando ativado */
+}
+
+/* Cor do toggle quando desativado */
+.form-check-input {
+    background-color: #f590a9; /* Cor de fundo quando desativado */
+    border-color: #f590a9; /* Cor da borda quando desativado */
+}
+
+#btn-save {
+    background-color: #bd2d51; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border-color: #bd2d51; /* Remove a borda */
+}
+
+#btn-save-datetime {
+    background-color: #bd2d51; /* Cor de fundo azul */
+    color: white; /* Cor do texto */
+    border-color: #bd2d51;
+}
+
+#open-modal-date {
+    background-color: white; /* Cor de fundo personalizada */
+    color: black; /* Cor do texto */
+    border: none; /* Remove a borda */
+    font-weight: 600;
+}

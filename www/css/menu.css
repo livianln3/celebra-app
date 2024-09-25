@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #26152e;
+}
+
+.navbar {
+    width: 100%; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1000; 
+    color: #26152e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-fluid {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.linha-sup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+
+.quad {
+    width: calc(50% - 5px);
+    height: 200px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*para telas menores*/
+@media (max-width: 600px) {
+    .quad {
+        width: calc(48% - 5px);
+        height: 150px;
+    }
+}
+
+.imagem {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.imagem-sair {
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+}
+
+.ret {
+    width: 90%;
+    max-width: 500px;
+    height: 150px;
+    background-color: white;
+    margin-top: 20px;
+    display: flex;
+    /*align-items: center;
+    justify-content: center;
+    border-radius: 15px; DESSE JEITO, A IMAGEM FICA AO LADO DO TEXTO, AO INVÉS DE NA FRENTE*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.ret-out {
+    width: 90%;
+    max-width: 500px;
+    height: 30px;
+    background-color: white;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    gap: 10px;
+}
+
+.ret-out p {
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+}

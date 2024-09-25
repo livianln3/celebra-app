@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Assets/CSS/configuracoes.css">
+    <title>Configurações</title>
+</head>
+
+<body>
+
+    <!--navbar com logo-->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./Assets/Imagens/logo-celebra.png" alt="logo celebra" width="135" height="90">
+            </a>
+        </div>
+    </nav>
+
+    <!--perfil do usuário-->
+    <div class="container">
+        <div class="retangulo">
+            <img src="./Assets/Imagens/usuario.png" alt="usuario" class="imagem">
+            <button id="open-modal-user" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#modalUser">Perfil do usuário</button>
+        </div>
+
+        <!--modal perfil do usuário-->
+        <div class="modal fade" id="modalUser" tabindex="-1" aria-labelledby="modalUserLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalUserLabel">Perfil do usuário</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Nome completo: Fulano de tal</p>
+                        <p>Telefone: (11)999999999</p>
+                        <p>E-mail: fulano@email.com</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" id="btn-edit-info" class="btn btn-primary">Editar informações</button>
+                        <!-- Este botão abre o próximo modal -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--modal editar informações de perfil-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Informações</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nome:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-phone" class="col-form-label">Telefone</label>
+                                <input type="number" class="form-control" id="recipient-phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-email" class="col-form-label">E-mail:</label>
+                                <input type="email" class="form-control" id="recipient-email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-newpw" class="col-form-label">Nova senha:</label>
+                                <input type="password" class="form-control" id="recipient-newpw">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-confirmnewpw" class="col-form-label">Confirmar nova senha:</label>
+                                <input type="password" class="form-control" id="recipient-confirmnewpw">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" id="btn-save">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--notificações-->
+        <div class="retangulo">
+            <img src="./Assets/Imagens/notificacao.png" alt="notificação" class="imagem">
+            <button id="open-modal-notif" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#modalNotif">Notificações</button>
+        </div>
+
+        <!--modal notificações-->
+        <div class="modal fade" id="modalNotif" tabindex="-1" aria-labelledby="modalNotifLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalNotifLabel">Configurações de Notificações</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <!-- Notificações por Email -->
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                <label class="form-check-label" for="emailNotifications">Deseja receber notificações por
+                                    email?</label>
+                            </div>
+
+                            <!-- Notificações por Push -->
+                            <div class="form-check form-switch mt-3">
+                                <input class="form-check-input" type="checkbox" id="pushNotifications" checked>
+                                <label class="form-check-label" for="pushNotifications">Deseja receber notificações por
+                                    push?</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" id="btn-save">Salvar mudanças</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--data e hora-->
+        <div class="retangulo">
+            <img src="./Assets/Imagens/data e hora.png" alt="data e hora" class="imagem">
+            <button id="open-modal-date" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#modalDateTime">Data e hora</button>
+        </div>
+
+        <!-- Modal Data e Hora -->
+        <div class="modal fade" id="modalDateTime" tabindex="-1" aria-labelledby="modalDateTimeLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalDateTimeLabel">Configurar Data e Hora</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <!-- Formato da Data -->
+                            <div class="mb-3">
+                                <label for="date-format" class="form-label">Formato da Data</label>
+                                <select class="form-select" id="date-format">
+                                    <option value="dd/mm/yyyy">dd/mm/aaaa</option>
+                                    <option value="mm/dd/yyyy">mm/dd/aaaa</option>
+                                </select>
+                            </div>
+
+                            <!-- Formato da Hora -->
+                            <div class="mb-3">
+                                <label for="time-format" class="form-label">Formato da Hora</label>
+                                <select class="form-select" id="time-format">
+                                    <option value="12">12 horas (AM/PM)</option>
+                                    <option value="24">24 horas</option>
+                                </select>
+                            </div>
+
+                            <!-- Fuso Horário -->
+                            <div class="mb-3">
+                                <label for="timezone" class="form-label">Fuso Horário</label>
+                                <select class="form-select" id="timezone">
+                                    <option value="UTC-3">UTC-3 (Horário de Brasília)</option>
+                                    <option value="UTC-5">UTC-5 (Horário de Nova Iorque)</option>
+                                    <option value="UTC+1">UTC+1 (Horário de Londres)</option>
+                                    <option value="UTC+9">UTC+9 (Horário de Tóquio)</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" id="btn-save-datetime" class="btn btn-primary">Salvar mudanças</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--ajuda-->
+        <div class="retangulo">
+            <img src="./Assets/Imagens/ajuda.png" alt="ajuda" class="imagem">
+            <button id="open-modal-ajuda" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAjuda">
+                Ajuda
+            </button>
+        </div>
+
+        <!--modal ajuda-->
+        <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalAjudaLabel">Precisa de ajuda?</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nome completo:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                                <label for="recipient-name" class="col-form-label">Telefone:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                                <label for="recipient-name" class="col-form-label">E-mail:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Deixe sua mensagem</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-back" data-bs-dismiss="modal">Voltar</button>
+                        <button type="button" class="btn btn-send">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="retangulo-out">
+            <img src="./Assets/Imagens/sair.png" alt="" class="imagem-out">
+            <p>Sair</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="./Assets/JS/modal.js" defer></script>
+
+</body>
+
+</html>
