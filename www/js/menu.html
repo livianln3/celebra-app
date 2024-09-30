@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="ret" id="evento">
+        <div class="quad" id="evento">
             <img src="../img/evento.png" alt="evento" class="imagem">
             <p>Eventos</p>
         </div>
@@ -49,6 +49,18 @@
         // Adicionando evento de clique na div do calendário
         document.getElementById("calendario").addEventListener("click", function() {
             window.location.href = "../js/calendario.html";
+        });
+
+        document.getElementById("configuracoes").addEventListener("click", function() {
+            window.location.href = "../js/configuracoes.html";
+        });
+
+        document.getElementById("evento").addEventListener("click", function() {
+            window.location.href = "../js/meusEventos.html";
+        });
+
+        document.getElementById("sair").addEventListener("click", function() {
+            window.location.href = "../js/login.html";
         });
     </script>
 

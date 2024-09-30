@@ -154,7 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('cancelPlanButton').onclick = closePlanModal;
 
     // criar um evento na API da Cronofy
-    async function createEvent(title, date) {
+
+    /*async function createEvent(title, date) {
         const response = await fetch('https://api.cronofy.com/v1/events', {
             method: 'POST',
             headers: {
@@ -185,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 start: date,
                 end: new Date(new Date(date).getTime() + 60 * 60 * 1000), 
                 allDay: false
-            });
+            }); 
         }
-    }
+    } */ 
 });

@@ -6,6 +6,17 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
+    
+    <!-- Configurações de ícones para Android -->
+  <platform name="android">
+    <icon src="platforms/android/app/src/main/res/mipmap-mdpi/celebra_mdpi.png" density="mdpi"/>
+    <icon src="platforms/android/app/src/main/res/mipmap-hdpi/celebra_hdpi.png" density="hdpi"/>
+    <icon src="platforms/android/app/src/main/res/mipmap-xhdpi/celebra_xhdpi.png" density="xhdpi"/>
+    <icon src="platforms/android/app/src/main/res/mipmap-xxhdpi/celebra_xxhdpi.png" density="xxhdpi"/>
+    <icon src="platforms/android/app/src/main/res/mipmap-xxxhdpi/celebra_xxxhdpi.png" density="xxxhdpi"/>
+</platform>
+
+
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 </widget>
