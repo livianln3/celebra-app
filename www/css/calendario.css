@@ -6,6 +6,14 @@
     box-sizing: border-box;
 }
 
+html body div#containerCal div#calendar .fc a, 
+html body div#containerCal div#calendar .fc-event-title a,
+html body div#containerCal div#calendar .fc-daygrid-day-number a, 
+html body div#containerCal div#calendar .fc-col-header-cell-cushion a {
+    text-decoration: none !important;
+    color: white !important;
+}
+
 html, body {
     height: 100%;
     display: flex;
@@ -33,17 +41,27 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, label, input, button {
 .fc-daygrid-day, 
 .fc-col-header-cell, 
 .fc-col-header-cell-cushion {
-    color: white;
+    color: black !important;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none !important;
+}
+
+.fc a, 
+.fc-event-title a, 
+.fc-daygrid-day-number a, 
+.fc-col-header-cell-cushion a {
+    text-decoration: none !important;
+    color: white !important; /* Adicionado para sobrescrever o inherit */
 }
 
 a {
-    color: black; 
+    color: white; 
     background-color: #221329;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none !important;
 }
 
-
+/* Outros estilos mantidos */
 #container-fluid {
     width: auto;
     display: flex;
@@ -87,7 +105,6 @@ button.navbar-toggler {
     color: #ccc;
     z-index: 1; 
     padding: 5px;
-
 }
 
 #eventModal {
