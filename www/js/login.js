@@ -1,5 +1,6 @@
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.getElementById('enterButton').addEventListener('click', function(event) {
+    event.preventDefault();  // Impede o comportamento padrão do botão
+    
     const emailInput = document.getElementById('email');
     const emailError = document.getElementById('emailError');
     const passwordInput = document.getElementById('senha');
@@ -18,7 +19,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         emailError.textContent = '';
     }
 
-    // Validação da senha (mínimo de 6 caracteres)
+    // Validação da senha
     if (password.length < 6) {
         passwordError.textContent = 'A senha deve ter pelo menos 6 caracteres.';
         valid = false;
@@ -26,13 +27,22 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         passwordError.textContent = '';
     }
 
-    if (valid) {
-        alert('Cadastro realizado com sucesso!');
+    // Verifica se o email e senha são corretos
+    if (email === 'exemplo@gmail.com' && password === 'senha123' && valid) {
+        // Redireciona para o menu
+        window.location.href = '/js/menu.html';
+    } else if (valid) {
+        alert('Email ou senha incorretos.');
     }
 });
 
+// Funções de recuperação de senha e cadastro
 document.getElementById('recoverPassword').addEventListener('click', function() {
-    alert('Recuperar senha foi clicado!');
+    window.location.href = '../js/recuperarSenha.html';
+});
+
+document.getElementById('registerButton').addEventListener('click', function() {
+    window.location.href = '../js/cadastro.html';
 });
 
 // Mostrar/ocultar senha
@@ -49,6 +59,7 @@ function mostrarSenha() {
     }
 }
 
+// Função para validar email
 function validateEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);

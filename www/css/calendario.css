@@ -239,40 +239,36 @@ button.navbar-toggler {
 }
 
 #preparativosList {
-    list-style-type: none; 
+    list-style-type: none;
     padding: 0;
-}
-
-#preparativosList {
-    list-style-type: none; 
-    padding: 0;
-}
-#preparativosList {
-    list-style-type: none; 
-    padding: 0;
-}
-
-#preparativosList {
-    list-style-type: none; 
-    padding: 0;
-    max-width: 100%; 
+    max-width: 100%;
 }
 
 #preparativosList li {
-    margin: 2px 0;
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: flex-start;
+    padding-left: 0;
+    margin-bottom: 10px;
+}
+
+#preparativosList li input[type="checkbox"] {
+    margin-right: 5px;
+    transform: scale(1.2);
+    align-self: flex-start;
 }
 
 #preparativosList li span {
-    margin-left: 5px;
-    overflow-wrap: break-word;
-  
-    hyphens: auto;
     flex: 1;
-    white-space: normal;
-    max-width: calc(100% - 25px);
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    min-width: 20ch;
+    max-width: 100%;
 }
+
+#preparativosList li span.long-text {
+    white-space: normal;
+}
+
 
 input[type="checkbox"] {
     margin-top: 0;
