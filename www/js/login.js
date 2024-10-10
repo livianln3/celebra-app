@@ -30,7 +30,7 @@ document.getElementById('enterButton').addEventListener('click', function(event)
     // Verifica se o email e senha são corretos
     if (email === 'exemplo@gmail.com' && password === 'senha123' && valid) {
         // Redireciona para o menu
-        window.location.href = '/js/menu.html';
+        window.location.href = '../js/menu.html'; //ou  /js/menu.html
     } else if (valid) {
         alert('Email ou senha incorretos.');
     }
