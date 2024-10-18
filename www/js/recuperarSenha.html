@@ -3,76 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/login.css"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="login.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Login</title>
+    <title>Recuperação de Senha</title>
 </head>
 <body>
     <div class="container">
-        <h1>Login</h1>
-        <form id="registrationForm">
-            <input type="email" id="email" placeholder="Digite seu email" required>
+        <h1>Recuperação de Senha</h1>
+
+        <!-- Formulário para enviar o e-mail -->
+        <form id="emailForm">
+            <input type="email" id="email" placeholder="Insira seu e-mail" required>
             <span id="emailError" class="error"></span>
+            <button type="submit">Enviar Código</button>
+        </form>
+
+        <!-- Formulário para inserir o código de recuperação -->
+        <form id="recoverForm" style="display:none;">
+            <input type="text" id="codigo" placeholder="Insira o código de recuperação" required>
+            <span id="codigoError" class="error"></span>
+            <button type="submit">Verificar Código</button>
+        </form>
+
+        <!-- Seção para criar nova senha -->
+        <div id="newPasswordSection" style="display:none;">
+            <h2>Defina sua Nova Senha</h2>
 
             <div class="password-container">
-                <input type="password" id="senha" placeholder="Digite sua senha" required>
-                <i class="bi bi-eye" id="btn-senha" onclick="mostrarSenha()"></i>
+                <input type="password" id="novaSenha" placeholder="Crie uma nova senha" required>
+                <i class="bi bi-eye" id="btn-nova-senha" onclick="mostrarSenha('novaSenha', 'btn-nova-senha')"></i>
             </div>
-            <span id="passwordError" class="error"></span>
+            <span id="novaSenhaError" class="error"></span>
 
-            <button type="submit">Entrar</button>
-            <button type="button" id="recoverPassword">Recuperar Senha</button>
-            <button type="button" id="registerButton">Cadastre-se</button>
-        </form>
+            <div class="password-container">
+                <input type="password" id="confirmNovaSenha" placeholder="Confirme sua nova senha" required>
+                <i class="bi bi-eye" id="btn-confirm-nova-senha" onclick="mostrarSenha('confirmNovaSenha', 'btn-confirm-nova-senha')"></i>
+            </div>
+            <span id="confirmNovaSenhaError" class="error"></span>
+
+            <button id="resetPasswordButton">Resetar Senha</button>
+        </div>
+
+        <button onclick="window.location.href='login.html'">Voltar para Login</button>
     </div>
+
     <script>
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        let codigoEnviado = ''; // Armazena o código enviado
+
+        // Envio do código para o e-mail
+        document.getElementById('emailForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const emailInput = document.getElementById('email');
             const emailError = document.getElementById('emailError');
-            const passwordInput = document.getElementById('senha');
-            const passwordError = document.getElementById('passwordError');
 
-            const email = emailInput.value;
-            const password = passwordInput.value;
+            if (validateEmail(emailInput.value)) {
+                emailError.textContent = '';
 
+                try {
+                    const response = await fetch('http://localhost:3000/send-code', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: emailInput.value })
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert('Código enviado para seu e-mail!');
+                        codigoEnviado = result.codigo;
+                        document.getElementById('recoverForm').style.display = 'block';
+                    } else {
+                        alert(result.message);
+                    }
+                } catch (error) {
+                    console.error('Erro:', error);
+                    alert('Erro ao enviar o e-mail.');
+                }
+            } else {
+                emailError.textContent = 'Por favor, insira um e-mail válido.';
+            }
+        });
+
+        // Verificação do código
+        document.getElementById('recoverForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const codigoInput = document.getElementById('codigo');
+            const codigoError = document.getElementById('codigoError');
+
+            if (codigoInput.value === codigoEnviado) {
+                codigoError.textContent = '';
+                document.getElementById('newPasswordSection').style.display = 'block';
+            } else {
+                codigoError.textContent = 'Código inválido. Tente novamente.';
+            }
+        });
+
+        // Reset da senha
+        document.getElementById('resetPasswordButton').addEventListener('click', function() {
+            const novaSenhaInput = document.getElementById('novaSenha');
+            const confirmNovaSenhaInput = document.getElementById('confirmNovaSenha');
+            const novaSenhaError = document.getElementById('novaSenhaError');
+            const confirmNovaSenhaError = document.getElementById('confirmNovaSenhaError');
+
+            const novaSenha = novaSenhaInput.value;
+            const confirmNovaSenha = confirmNovaSenhaInput.value;
             let valid = true;
 
-            // Validação do email
-            if (!validateEmail(email)) {
-                emailError.textContent = 'Por favor, insira um email válido.';
+            if (novaSenha.length < 6) {
+                novaSenhaError.textContent = 'A nova senha deve ter pelo menos 6 caracteres.';
                 valid = false;
             } else {
-                emailError.textContent = '';
+                novaSenhaError.textContent = '';
             }
 
-            // Validação da senha
-            if (password.length < 6) {
-                passwordError.textContent = 'A senha deve ter pelo menos 6 caracteres.';
+            if (novaSenha !== confirmNovaSenha) {
+                confirmNovaSenhaError.textContent = 'As senhas não coincidem.';
                 valid = false;
             } else {
-                passwordError.textContent = '';
+                confirmNovaSenhaError.textContent = '';
             }
 
             if (valid) {
-                alert('Login realizado com sucesso!');
-                // Aqui você pode redirecionar para outra página se necessário
+                alert('Senha redefinida com sucesso!');
+                window.location.href = 'login.html'; // Redireciona para a tela de login
             }
         });
 
-        document.getElementById('recoverPassword').addEventListener('click', function() {
-            window.location.href = 'recuperarSenha.html'; // Redireciona para a página de recuperação de senha
-        });
-
-        document.getElementById('registerButton').addEventListener('click', function() {
-            window.location.href = 'cadastro.html'; // Redireciona para a página de cadastro
-        });
-
-        // Mostrar/ocultar senha
-        function mostrarSenha() {
-            var inputPass = document.getElementById('senha');
-            var btnShowPass = document.getElementById('btn-senha');
+        // Função para mostrar/ocultar senha
+        function mostrarSenha(inputId, btnId) {
+            const inputPass = document.getElementById(inputId);
+            const btnShowPass = document.getElementById(btnId);
 
             if (inputPass.type === 'password') {
                 inputPass.type = 'text';
@@ -83,8 +142,9 @@
             }
         }
 
+        // Validação de e-mail
         function validateEmail(email) {
-            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]$/;
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return regex.test(email);
         }
     </script>
